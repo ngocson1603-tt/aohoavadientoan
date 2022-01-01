@@ -1,0 +1,55 @@
+<%- include("./partials/header")  %>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">Ung dung mongo</a>
+</nav>
+
+<div class="container mt-5">
+    <form action="/add/todo" method="POST" class="d-flex">
+        <input type="text" class="card mt-3 mr-3" name="todo" class="form-control" placeholder="Enter lop">
+        <input type="text" class="card mt-3 mr-3" name="ms" class="form-control" placeholder="Enter ms">
+        <input type="text" class="card mt-3 mr-3" name="ten" class="form-control" placeholder="Enter ten">
+        <input type="file" id="file-upload" name="hinh" onchange="readURL(this);">
+        <input type="submit" value="Add Du Lieu" class="btn btn-md btn-primary mx-2">
+    </form>
+    <img id="blah" src="#" alt="hinh anh" width="104" height="142">
+
+
+    <% todo.forEach(todos => { %>
+        <div class="card mt-3 mr-3" style="width: 18rem;">
+            <img class="card-img-top" src="https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2020/09/avatar-don-de-thuong-ngo-nghinh-nhat-1w1jpg-696x696.jpg?fit=700%2C20000&quality=95&ssl=1">
+            <div class="card-body">
+                <h5 class="card-title">Thong Tin</h5>
+                <p class="card-text"><%= todos.todo %></p>
+                <p class="card-text"><%= todos.ms %></p>
+                <p class="card-text"><%= todos.ten %></p>
+                <p class="card-text"><%= todos.hinh %></p>
+                <a href="/delete/todo/<%= todos._id %>" class="btn btn-danger btn-sm">
+	                Delete
+                </a>
+            </div>
+        </div>
+    <% }) %>
+
+
+</div>
+<script>
+    const fileUpload = document.querySelector("#file-upload");
+
+    fileUpload.addEventListener("change", (event) => {
+	    const { files } = event.target;
+	    console.log("files", files)
+    })
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#blah').attr('src', e.target.result).width(150).height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+</script>
+<%- include("./partials/footer")  %>

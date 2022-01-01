@@ -1,0 +1,3 @@
+C:\Users\Admin\Desktop\nhomfreefive\nhomfreefive\obj\Debug\nhomfreefive.njsproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\nhomfreefive\nhomfreefive\obj\Debug\nhomfreefive.njsproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\nhomfreefive\nhomfreefive\bin\Microsoft.NodejsTools.WebRole.dll
